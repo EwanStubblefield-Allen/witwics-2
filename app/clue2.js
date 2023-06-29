@@ -10,7 +10,7 @@
 // output: 4
 
 function returnIndex(arr, str) {
-  // TODO your code here
+  return arr.findIndex(a => a == str)
 }
 
 //-------------------------------------------
@@ -23,7 +23,12 @@ function returnIndex(arr, str) {
 // output: true
 
 function hasName(arr, name) {
-  // TODO your code here
+  console.log(arr, name)
+  let f = arr.filter(a => a == name)
+  if (!f.length) {
+    return false
+  }
+  return true
 }
 
 //-------------------------------------------
@@ -43,7 +48,7 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
-  // TODO YOUR CODE HERE
+  return staff.find(s => s.id == id)
 }
 
 //-------------------------------------------
@@ -70,7 +75,10 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
-  // TODO YOUR CODE HERE
+  console.log(name)
+  let foundMem = theBand.members.find(m => m.name.includes(name))
+
+  return `${foundMem.name} is in the band and plays the ${foundMem.instrument}`
 }
 
 //-------------------------------------------
@@ -82,29 +90,35 @@ function bandMemberDetails(name) {
 // input: 'LAX', true
 // output: 2200
 
-let flights = [{
-  from: 'MEL',
-  to: 'LAX',
-  prices: {
-    standard: 500,
-    firstClass: 2200
+let flights = [
+  {
+    from: 'MEL',
+    to: 'LAX',
+    prices: {
+      standard: 500,
+      firstClass: 2200
+    }
+  }, {
+    from: 'MEL',
+    to: 'SEA',
+    prices: {
+      standard: 800,
+      firstClass: 1200
+    }
+  }, {
+    from: 'MEL',
+    to: 'CAN',
+    prices: {
+      standard: 750,
+      firstClass: 6200
+    }
   }
-}, {
-  from: 'MEL',
-  to: 'SEA',
-  prices: {
-    standard: 800,
-    firstClass: 1200
-  }
-}, {
-  from: 'MEL',
-  to: 'CAN',
-  prices: {
-    standard: 750,
-    firstClass: 6200
-  }
-}]
+]
 
 function flightCost(destination, firstClass) {
-  // TODO YOUR CODE HERE
+  let foundFlight = flights.find(f => f.to == destination)
+  if (firstClass) {
+    return foundFlight.prices.firstClass
+  }
+  return foundFlight.prices.standard
 }
