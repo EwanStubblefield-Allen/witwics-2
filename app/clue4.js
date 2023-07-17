@@ -12,7 +12,7 @@
 // Output: [10.5, 15.75, 21]
 
 function afterTax(arr, tax) {
-  // TODO YOUR CODE HERE
+  return arr.map(a => a * tax + a)
 }
 
 // ---------------------------------------------
@@ -36,7 +36,12 @@ const exampleOutput = [
 ]
 
 function convertToObjects(arr) {
-  // TODO YOUR CODE HERE
+  return arr.map(a => {
+    return {
+      name: a[0],
+      price: a[1]
+    }
+  })
 }
 
 // ---------------------------------------------
@@ -49,7 +54,7 @@ function convertToObjects(arr) {
 // Output: [1, 2, 3, 4, 5, 6]
 
 function joinArrays(arr1, arr2) {
-  // TODO YOUR CODE HERE
+  return arr1.concat(arr2)
 }
 
 // ---------------------------------------------
@@ -67,5 +72,7 @@ const exampleTotal = [
 // Output: 35
 
 function totalReceipt(arr) {
-  // TODO YOUR CODE HERE
+  let total = 0
+  arr.forEach(a => total += a.price)
+  return total
 }

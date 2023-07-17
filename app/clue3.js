@@ -26,7 +26,7 @@
 */
 
 function platesByCharacters(arr) {
-  // TODO YOUR CODE HERE
+  return arr.filter(a => a.length == 7)
 }
 
 // --------------------------------
@@ -37,7 +37,8 @@ function platesByCharacters(arr) {
 
 // Example:
 // input: 
-/* [
+/* 
+  [
     {plate: 'IBSTOLEN', citations: 2 },
     {plate: 'NOTMINE', citations: 1 },
     {plate: 'DRIVNFAST', citations: 3 },
@@ -45,19 +46,20 @@ function platesByCharacters(arr) {
     {plate: 'HEIST', citations: 0 },
     {plate: 'CARGOFAST', citations: 1 },
     {plate: 'ETMYDST', citations: 7 }
-   ],
-   3
+  ],
+  3
 */
 // output: 
-/* [
+/* 
+  [
     {plate: 'DRIVNFAST', citations: 3 }, 
     {plate: 'GETAWAY', citations: 6 }, 
     {plate: 'ETMYDST', citations: 7 }
-   ]
+  ]
 */
 
 function filterPlatesByCitations(plates, numberOfCitations) {
-  // TODO YOUR CODE HERE
+  return plates.filter(p => p.citations >= numberOfCitations)
 }
 
 // --------------------------------
@@ -70,7 +72,7 @@ function filterPlatesByCitations(plates, numberOfCitations) {
 // output: ['ETMYDST','GETAWAY','NOTMINE']
 
 function sortPlates(arr) {
-  // TODO YOUR CODE HERE
+  return arr.sort()
 }
 
 // --------------------------------
@@ -82,11 +84,12 @@ function sortPlates(arr) {
 // Example:
 
 // input: 
-/* [
+/* 
+  [
     {country: 'CAN', plate:'NOTMINE', citations: 2},
     {country: 'USA', plate:'GETAWAY', citations: 1},
     {country: 'AUS', plate:'ETMYDST', citations: 13}
-   ]
+  ]
 */
 // output: 
 /*
@@ -98,7 +101,7 @@ function sortPlates(arr) {
 */
 
 function sortPlatesByCitations(arr) {
-  // TODO YOUR CODE HERE
+  return arr.sort((a, b) => b.citations - a.citations)
 }
 
 // --------------------------------
@@ -111,11 +114,12 @@ function sortPlatesByCitations(arr) {
 
 // Example:
 // input: 
-/* [
+/* 
+  [
     { country: 'AUS', plate: 'NOTMINE' },
     { country: 'USA', plate: 'GETAWAY' },
     { country: 'CAN', plate: 'ETMYDST' }
-   ]
+  ]
 */
 // output: 
 /*
@@ -127,5 +131,12 @@ function sortPlatesByCitations(arr) {
 */
 
 function sortPlatesByCountry(arr) {
-  // TODO YOUR CODE HERE
+  arr.sort((a, b) => {
+    if (a.country < b.country) {
+      return -1
+    } else if (a.country > b.country) {
+      return 1
+    }
+  })
+  return arr
 }

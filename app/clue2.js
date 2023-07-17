@@ -23,7 +23,6 @@ function returnIndex(arr, str) {
 // output: true
 
 function hasName(arr, name) {
-  console.log(arr, name)
   let f = arr.filter(a => a == name)
   if (!f.length) {
     return false
@@ -75,7 +74,6 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
-  console.log(name)
   let foundMem = theBand.members.find(m => m.name.includes(name))
 
   return `${foundMem.name} is in the band and plays the ${foundMem.instrument}`
